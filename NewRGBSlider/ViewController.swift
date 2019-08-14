@@ -82,6 +82,8 @@ class ViewController: UIViewController {
         redSlider.value = Float(color.redValue)
         greenSlider.value = Float(color.greenValue)
         blueSlider.value = Float(color.blueValue)
+        
+        
     }
     
     private func setColor() {
@@ -185,7 +187,7 @@ extension ViewController {
 }
 
 extension UIColor {
-    var redValue: CGFloat{ return CIColor(color: self).red }
-    var greenValue: CGFloat{ return CIColor(color: self).green }
-    var blueValue: CGFloat{ return CIColor(color: self).blue }
+    var redValue: CGFloat { return CIColor(color: self).red }
+    var greenValue: CGFloat { return CIColor(color: self).green }
+    var blueValue: CGFloat { return CIColor(color: self).blue }
 }
