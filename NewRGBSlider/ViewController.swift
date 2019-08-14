@@ -16,7 +16,8 @@ class ViewController: UIViewController {
 
     var deledate: ColorDelegate?
     var color: UIColor!
-
+    
+    // MARK: - IBOutlets
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -46,7 +47,8 @@ class ViewController: UIViewController {
         addDoneButtonTo(greenTextField)
         addDoneButtonTo(blueTextField)
     }
-
+    
+    // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
         switch sender.tag {
         case 0:
@@ -75,11 +77,15 @@ class ViewController: UIViewController {
         deledate?.userChangeColor(color)
     }
     
-    func newColor() {
+    // MARK: - Private Methods
+    private func newColor() {
         
         redSlider.value = Float(color.redValue)
         greenSlider.value = Float(color.greenValue)
         blueSlider.value = Float(color.blueValue)
+        
+        setValueForlabel()
+        setValueForTextField()
     }
     
     private func setColor() {
