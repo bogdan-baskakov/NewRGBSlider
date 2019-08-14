@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol ColorDelegate{
+    func userChangeColor(_ color: UIColor)
+}
+
 class ViewController: UIViewController {
-    
+
+    var deledate: ColorDelegate?
+    var color: UIColor!
+
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -33,6 +40,8 @@ class ViewController: UIViewController {
         setValueForlabel()
         setValueForTextField()
         
+        newColor()
+        
         addDoneButtonTo(redTextField)
         addDoneButtonTo(greenTextField)
         addDoneButtonTo(blueTextField)
@@ -54,6 +63,23 @@ class ViewController: UIViewController {
         }
         
         setColor()
+    }
+    
+    @IBAction func setColorForMainVC() {
+        
+        let color = UIColor(red: CGFloat(redSlider.value),
+                            green: CGFloat(greenSlider.value),
+                            blue: CGFloat(blueSlider.value),
+                            alpha: 1)
+        
+        deledate?.userChangeColor(color)
+    }
+    
+    func newColor() {
+        
+        redSlider.value = Float(color.redValue)
+        greenSlider.value = Float(color.greenValue)
+        blueSlider.value = Float(color.blueValue)
     }
     
     private func setColor() {
@@ -154,4 +180,10 @@ extension ViewController {
         present(alert, animated: true)
     }
     
+}
+
+extension UIColor {
+    var redValue: CGFloat{ return CIColor(color: self).red }
+    var greenValue: CGFloat{ return CIColor(color: self).green }
+    var blueValue: CGFloat{ return CIColor(color: self).blue }
 }

@@ -10,20 +10,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="jgv-EU-mEj">
             <objects>
-                <viewController id="OLE-hX-cid" sceneMemberID="viewController">
+                <viewController id="OLE-hX-cid" customClass="MainViewController" customModule="NewRGBSlider" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DeL-U5-TOa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="n6h-yz-jXe"/>
                     </view>
                     <navigationItem key="navigationItem" id="Q7f-zu-mte">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="PZ8-Bz-fe3">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="tiI-Fh-w5F"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="ChangeColor" id="tiI-Fh-w5F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -169,6 +169,10 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="setColorForMainVC" destination="BYZ-38-t0r" eventType="touchUpInside" id="6yz-Ry-OgG"/>
+                                    <segue destination="VPu-CL-Hdi" kind="unwind" unwindAction="unwindSegueWithSegue:" id="QbP-qV-Zgk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -206,6 +210,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="VPu-CL-Hdi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="843" y="90"/>
         </scene>
