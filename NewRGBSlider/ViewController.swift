@@ -37,11 +37,11 @@ class ViewController: UIViewController {
         
         colorView.layer.cornerRadius = 15
         
+        newColor()
+        
         setColor()
         setValueForlabel()
         setValueForTextField()
-        
-        newColor()
         
         addDoneButtonTo(redTextField)
         addDoneButtonTo(greenTextField)
@@ -79,13 +79,9 @@ class ViewController: UIViewController {
     
     // MARK: - Private Methods
     private func newColor() {
-        
         redSlider.value = Float(color.redValue)
         greenSlider.value = Float(color.greenValue)
         blueSlider.value = Float(color.blueValue)
-        
-        setValueForlabel()
-        setValueForTextField()
     }
     
     private func setColor() {
